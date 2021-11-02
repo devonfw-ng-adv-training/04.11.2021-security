@@ -1,0 +1,19 @@
+<form (ngSubmit)="saveAndGoToOverview()"
+      [formGroup]="bookForm"
+      #bookFormDirective="ngForm"
+      [class.ng-submitted]="bookFormDirective.submitted">
+  <div class="mb-3">
+    <label for="author" class="form-label">Author:</label>
+    <input type="text" id="author"
+           class="form-control"
+           formControlName="author">
+    <ba-error-messages [of]="bookForm.get('author')"></ba-error-messages>
+  </div>
+  <div class="mb-3">
+    <label for="title" class="form-label">Title:</label>
+    <input id="title" class="form-control"
+           formControlName="title">
+    <ba-error-messages [of]="bookForm.get('title')"></ba-error-messages>
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+</form>
