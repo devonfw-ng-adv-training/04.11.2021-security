@@ -40,8 +40,8 @@ export const booksReducer = createReducer(
   on(updateBook, (state, payload) => ({
     ...state,
     data: state.data.map((oldBook) => {
-      if (oldBook.id === payload.newBook.id) {
-        return { ...payload.newBook };
+      if (oldBook.id === payload.payload.id) {
+        return { ...payload.payload };
       } else {
         return oldBook;
       }

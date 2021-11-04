@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { delay } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
+import { ReduxBookService } from '../../services/redux-book.service';
 
 @Component({
   selector: 'ba-book-overview',
@@ -18,9 +19,10 @@ export class BookOverviewComponent {
     private books: BookService,
     private router: Router,
     private currentRoute: ActivatedRoute,
-    private store: Store<{ books: { data: Book[] } }>
+    private store: Store<{ books: { data: Book[] } }>,
+    private customStore: ReduxBookService
   ) {
-    this.books$ = store.select((state) => state.books.data);
+    this.books$ = customStore.select((state) => state.books.data);
   }
 
   goToDetailsOf(book: Book): void {

@@ -7,6 +7,7 @@ import { takeUntil } from 'rxjs/operators';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { addBook, updateBook } from '../../store/actions/books.actions';
+import { ReduxBookService } from '../../services/redux-book.service';
 
 @Component({
   selector: 'ba-book-details',
@@ -22,7 +23,8 @@ export class BookDetailsComponent implements OnDestroy {
     private books: BookService,
     private router: Router,
     private currentRoute: ActivatedRoute,
-    private store: Store<{ books: { data: Book[] } }>
+    private store: Store<{ books: { data: Book[] } }>,
+    private customStore: ReduxBookService
   ) {
     this.book = currentRoute.snapshot.data.book;
     this.bookForm = new FormGroup({
@@ -46,7 +48,7 @@ export class BookDetailsComponent implements OnDestroy {
       if (this.book) {
         // edit existing book
         const bookToUpdate: Book = { ...this.book, author, title };
-        this.store.dispatch(updateBook({ newBook: bookToUpdate }));
+        this.customStore.dispatch(updateBook({ payload: bookToUpdate }));
 
         saveOrUpdate = this.books.update(bookToUpdate);
       } else {
