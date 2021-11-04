@@ -6,12 +6,14 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthenticationHttpInterceptor} from './services/authentication.http-interceptor';
 import {AuthorizationGuard} from './services/authorization.guard';
 import {AccessDeniedComponent} from './components/access-denied/access-denied.component';
+import {IfUserHasRightDirective} from './directives/if-user-has-right.directive';
 
 @NgModule({
-  declarations: [AccessDeniedComponent],
+  declarations: [AccessDeniedComponent, IfUserHasRightDirective],
   imports: [
     CommonModule
-  ]
+  ],
+  exports: [IfUserHasRightDirective]
 })
 export class SecurityModule {
   static forRoot(amplifyConfig: any): ModuleWithProviders<SecurityModule> {
