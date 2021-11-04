@@ -3,24 +3,7 @@
       #bookFormDirective="ngForm"
       [class.ng-submitted]="bookFormDirective.submitted">
   <ng-container formGroupName="author">
-    <div class="mb-3">
-      <label for="firstname" class="form-label">First Name:</label>
-      <ba-basic-validation-output>
-        <input type="text" id="firstname"
-               class="form-control"
-               formControlName="firstname"
-               [ngClass]="{'is-invalid':bookForm.get('author.firstname')?.invalid }">
-     </ba-basic-validation-output>
-    </div>
-    <div class="mb-3">
-      <label for="lastname" class="form-label">Last Name:</label>
-      <ba-basic-validation-output>
-        <input type="text" id="lastname"
-             class="form-control"
-             formControlName="lastname"
-             [ngClass]="{'is-invalid':bookForm.get('author.lastname')?.invalid }">
-     </ba-basic-validation-output>
-    </div>
+    <ba-book-author-nested-form></ba-book-author-nested-form>
   </ng-container>
   <div class="mb-3">
     <label for="title" class="form-label">Title:</label>
@@ -30,5 +13,25 @@
            [ngClass]="{'is-invalid':bookForm.get('title')?.invalid }">
     </ba-basic-validation-output>
   </div>
+  <ng-container formGroupName="details">
+    <div class="mb-3">
+      <label for="publishedYear" class="form-label">publishedYear:</label>
+      <ba-basic-validation-output>
+        <input type="text" id="publishedYear"
+               class="form-control"
+               formControlName="publishedYear"
+               [ngClass]="{'is-invalid':bookForm.get('details.firstname')?.invalid }">
+      </ba-basic-validation-output>
+    </div>
+    <div class="mb-3">
+      <label for="isbn" class="form-label">ISBN:</label>
+      <ba-basic-validation-output>
+        <input type="text" id="isbn"
+               class="form-control"
+               formControlName="isbn"
+               [ngClass]="{'is-invalid':bookForm.get('details.isbn')?.invalid }">
+      </ba-basic-validation-output>
+    </div>
+  </ng-container>
   <button type="submit" class="btn btn-primary">Save</button>
 </form>
