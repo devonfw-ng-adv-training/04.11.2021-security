@@ -1,7 +1,3 @@
 $primary: #027bb6;
 $enable-rounded: false;
 @import "~bootstrap/scss/bootstrap";
-
-form input.ng-invalid.ng-touched, form.ng-submitted input.ng-invalid {
-  @extend .is-invalid;
-}

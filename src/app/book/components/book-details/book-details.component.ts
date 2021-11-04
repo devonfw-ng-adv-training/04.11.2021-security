@@ -19,10 +19,19 @@ export class BookDetailsComponent implements OnDestroy {
   constructor(private books: BookService,
               private router: Router,
               private currentRoute: ActivatedRoute) {
+
     this.book = currentRoute.snapshot.data.book;
     this.bookForm = new FormGroup({
-      author: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
-      title: new FormControl(null, Validators.required)
+      author: new FormGroup({
+        firstname: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
+        lastname: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
+      }),
+      title: new FormControl(null, Validators.required),
+      category: new FormControl([]),
+      details: new FormGroup({
+        publishedYear: new FormControl(null, [Validators.required]),
+        isbn: new FormControl(null, [Validators.required, Validators.maxLength(13)]),
+      }),
     });
     if (this.book) {
       this.bookForm.patchValue(this.book);
@@ -31,16 +40,13 @@ export class BookDetailsComponent implements OnDestroy {
 
   saveAndGoToOverview() {
     if (this.bookForm.valid) {
-      const author = this.bookForm.get('author')?.value;
-      const title = this.bookForm.get('title')?.value;
-
+      const bookFormValue = this.bookForm.value;
       let saveOrUpdate: Observable<Book>;
       if (this.book) { // edit existing book
-        const bookToUpdate: Book = {...this.book, author, title};
+        const bookToUpdate: Book = {...this.book, ...bookFormValue};
         saveOrUpdate = this.books.update(bookToUpdate);
       } else { // new book
-        const bookToSave: BookProps = {author, title};
-        saveOrUpdate = this.books.save(bookToSave)
+        saveOrUpdate = this.books.save(bookFormValue)
       }
 
       saveOrUpdate.pipe(takeUntil(this.unsubscribe)).subscribe(

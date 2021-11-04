@@ -3,7 +3,6 @@ import {Book} from '../../model/book';
 import {BookService} from '../../services/book.service';
 import {Observable} from 'rxjs';
 import {ActivatedRoute, Router} from '@angular/router';
-import {delay} from 'rxjs/operators';
 
 @Component({
   selector: 'ba-book-overview',
