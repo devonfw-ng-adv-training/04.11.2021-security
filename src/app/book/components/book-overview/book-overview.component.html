@@ -8,8 +8,9 @@
   </thead>
   <tbody>
   <tr *ngFor="let book of (books$ | async); index as i"
-      (click)="goToDetailsOf(book)">
-    <th scope="row">{{i+1}}</th>
+      (click)="goToDetailsOf(book)"
+      [ngClass]="{clickable: userHasRightToUpdateBook$ | async}">
+    <th scope="row">{{i + 1}}</th>
     <td>{{book.author}}</td>
     <td>{{book.title}}</td>
   </tr>
