@@ -6,13 +6,16 @@ import { BasicValidationOutputComponent } from './basic-validation-output/basic-
 import {TranslateModule} from "@ngx-translate/core";
 import { BookAuthorNestedFormComponent } from './book-author-nested-form/book-author-nested-form.component';
 
+import { NumberInputComponent } from './number-input/number-input.component';
+import {DetailsNestedFormComponent} from "./details-nested-form/details-nested-form.component";
+
 const exportedModules = [CommonModule, RouterModule, ReactiveFormsModule, TranslateModule];
-const exportedComponents = [BasicValidationOutputComponent, BookAuthorNestedFormComponent];
+const exportedComponents = [
+  NumberInputComponent,DetailsNestedFormComponent,  BasicValidationOutputComponent, BookAuthorNestedFormComponent];
 
 @NgModule({
   declarations: [
-    ...exportedComponents,
-    BookAuthorNestedFormComponent
+    ...exportedComponents
   ],
   imports: [
     CommonModule,

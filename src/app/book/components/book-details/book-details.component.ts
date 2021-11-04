@@ -29,10 +29,7 @@ export class BookDetailsComponent implements OnDestroy {
       }),
       title:  [null, Validators.required],
       categories:  [[]],
-      details:  this.fb.group({
-        publishedYear: [null, [Validators.required]],
-        isbn: [null, [Validators.required, Validators.maxLength(13)]],
-      }),
+      details:  { isbn:null, publishedYear:null},
     });
 
     if (this.book) {

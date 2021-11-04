@@ -1,0 +1,8 @@
+<input
+  #input
+  type="text"
+  (blur) = "onTouched()"
+  (input)="userInput($event)"
+  [disabled]="disabled"
+  (keypress)="isAllowed($event)"
+>

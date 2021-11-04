@@ -13,25 +13,6 @@
            [ngClass]="{'is-invalid':bookForm.get('title')?.invalid }">
     </ba-basic-validation-output>
   </div>
-  <ng-container formGroupName="details">
-    <div class="mb-3">
-      <label for="publishedYear" class="form-label">publishedYear:</label>
-      <ba-basic-validation-output>
-        <input type="text" id="publishedYear"
-               class="form-control"
-               formControlName="publishedYear"
-               [ngClass]="{'is-invalid':bookForm.get('details.firstname')?.invalid }">
-      </ba-basic-validation-output>
-    </div>
-    <div class="mb-3">
-      <label for="isbn" class="form-label">ISBN:</label>
-      <ba-basic-validation-output>
-        <input type="text" id="isbn"
-               class="form-control"
-               formControlName="isbn"
-               [ngClass]="{'is-invalid':bookForm.get('details.isbn')?.invalid }">
-      </ba-basic-validation-output>
-    </div>
-  </ng-container>
-  <button type="submit" class="btn btn-primary">Save</button>
+  <ba-details-nested-form  formControlName="details"> </ba-details-nested-form>
+  <button type="submit" class="btn btn-primary" [disabled]="bookForm.invalid" >Save</button>
 </form>

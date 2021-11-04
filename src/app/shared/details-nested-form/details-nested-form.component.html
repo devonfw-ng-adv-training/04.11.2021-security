@@ -1,0 +1,21 @@
+<ng-container [formGroup]="detailsForm">
+  <div class="mb-3">
+    <label for="publishedYear" class="form-label">Published year:</label>
+    <ba-basic-validation-output>
+      <ba-number-input
+        id="publishedYear"
+        class="form-control"
+        formControlName="publishedYear"
+      ></ba-number-input>
+    </ba-basic-validation-output>
+  </div>
+  <div class="mb-3">
+    <label for="isbn" class="form-label">ISBN:</label>
+    <ba-basic-validation-output>
+      <input type="text" id="isbn"
+             class="form-control"
+             formControlName="isbn"
+      >
+    </ba-basic-validation-output>
+  </div>
+</ng-container>
