@@ -1,5 +1,4 @@
 <ng-content></ng-content>
 <span class="invalid-feedback">
-  <span *ngIf="validationControl?.errors?.required">Please provide a value </span>
-  <span *ngIf="validationControl?.errors?.maxlength">Provide value is too long ({{validationControl?.errors?.maxlength.actualLength}}) </span>
+  <span *ngFor="let error of errors$ | async">{{ 'validation.' + error.name | translate:error.context }}</span>
 </span>

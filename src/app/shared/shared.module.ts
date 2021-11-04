@@ -3,8 +3,9 @@ import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
 import { BasicValidationOutputComponent } from './basic-validation-output/basic-validation-output.component';
+import {TranslateModule} from "@ngx-translate/core";
 
-const exportedModules = [CommonModule, RouterModule, ReactiveFormsModule];
+const exportedModules = [CommonModule, RouterModule, ReactiveFormsModule, TranslateModule];
 const exportedComponents = [BasicValidationOutputComponent];
 
 @NgModule({
@@ -12,7 +13,9 @@ const exportedComponents = [BasicValidationOutputComponent];
     ...exportedComponents
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TranslateModule,
+    ReactiveFormsModule
   ],
   exports: [
     ...exportedModules,

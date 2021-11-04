@@ -3,7 +3,7 @@
     {
       "id": 0,
       "author": {
-        "firstname": "Douglas",
+        "firstname": "DouglasDouglasDouglasDouglasDouglasDouglasDouglasDouglasDouglasDouglasDouglasDouglasDouglasDouglasDouglasDouglas",
         "lastname": "Crockford"
       },
       "title": "JavaScript. The Good Parts",
@@ -12,9 +12,10 @@
         "Thriller"
       ],
       "details": {
-        "publishedYear": 2011,
+        "publishedYear": "20112",
         "isbn": "123123123123"
-      }
+      },
+      "category": []
     },
     {
       "id": 1,

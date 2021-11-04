@@ -7,6 +7,8 @@ import {RouterModule} from '@angular/router';
 import {CoreModule} from './core/core.module';
 import {bookRoutes} from './book/book.routes';
 import {HttpClientModule} from '@angular/common/http';
+import {TranslateModule, TranslateService} from "@ngx-translate/core";
+import {transaltation} from "./core/lang-en";
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    TranslateModule.forRoot({defaultLanguage: 'en'}),
     CoreModule,
     RouterModule.forRoot([
       {path: '', redirectTo: '/books', pathMatch: 'full'},
@@ -25,4 +28,7 @@ import {HttpClientModule} from '@angular/common/http';
   bootstrap: [AppComponent],
 })
 export class AppModule {
+  constructor(private readonly  translationService:TranslateService) {
+    translationService.setTranslation('en',transaltation);
+  }
 }

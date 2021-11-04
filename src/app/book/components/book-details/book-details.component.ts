@@ -2,8 +2,8 @@ import {Component, OnDestroy} from '@angular/core';
 import {Book, BookProps} from '../../model/book';
 import {ActivatedRoute, Router} from '@angular/router';
 import {BookService} from '../../services/book.service';
-import {Observable, Subject} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import {defer, merge, Observable, of, Subject} from 'rxjs';
+import {startWith, takeUntil} from 'rxjs/operators';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -34,6 +34,7 @@ export class BookDetailsComponent implements OnDestroy {
         isbn: [null, [Validators.required, Validators.maxLength(13)]],
       }),
     });
+
     if (this.book) {
       this.bookForm.patchValue(this.book);
     }
