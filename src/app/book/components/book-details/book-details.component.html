@@ -7,12 +7,9 @@
   </ng-container>
   <div class="mb-3">
     <label for="title" class="form-label">Title:</label>
-    <ba-basic-validation-output>
       <input id="title" class="form-control"
            formControlName="title"
-           baIsInvalidClass
            >
-    </ba-basic-validation-output>
   </div>
   <ba-details-nested-form  formControlName="details"> </ba-details-nested-form>
   <button type="submit" class="btn btn-primary" [disabled]="bookForm.invalid" >Save</button>

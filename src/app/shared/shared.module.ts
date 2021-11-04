@@ -9,10 +9,14 @@ import { BookAuthorNestedFormComponent } from './book-author-nested-form/book-au
 import { NumberInputComponent } from './number-input/number-input.component';
 import {DetailsNestedFormComponent} from "./details-nested-form/details-nested-form.component";
 import {IsInvalidClassDirective} from "./is-invalid-class.directive";
+import { ValidationMsgComponent } from './validation-msg/validation-msg.component';
+import { DynamicValidationErrorsDirective } from './dynamic-validation-errors/dynamic-validation-errors.directive';
 
 const exportedModules = [CommonModule, RouterModule, ReactiveFormsModule, TranslateModule];
 const exportedComponents = [
-  NumberInputComponent, IsInvalidClassDirective, DetailsNestedFormComponent,  BasicValidationOutputComponent, BookAuthorNestedFormComponent];
+  NumberInputComponent,
+  ValidationMsgComponent,
+  DynamicValidationErrorsDirective, IsInvalidClassDirective, DetailsNestedFormComponent,  BasicValidationOutputComponent, BookAuthorNestedFormComponent];
 
 @NgModule({
   declarations: [

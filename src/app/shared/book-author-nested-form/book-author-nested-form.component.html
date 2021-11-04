@@ -1,22 +1,16 @@
 <ng-container [formGroup]="authorFormGroup">
   <div class="mb-3">
     <label for="firstname" class="form-label">First Name:</label>
-    <ba-basic-validation-output>
       <input type="text" id="firstname"
              class="form-control"
              formControlName="firstname"
-             baIsInvalidClass
              >
-    </ba-basic-validation-output>
   </div>
   <div class="mb-3">
     <label for="lastname" class="form-label">Last Name:</label>
-    <ba-basic-validation-output>
       <input type="text" id="lastname"
              class="form-control"
              formControlName="lastname"
-             baIsInvalidClass
              >
-    </ba-basic-validation-output>
   </div>
 </ng-container>
