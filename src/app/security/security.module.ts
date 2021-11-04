@@ -2,6 +2,8 @@ import {ModuleWithProviders, NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AMPLIFY_CONFIG, SecurityService} from './services/security.service';
 import {AuthenticationGuard} from './services/authentication.guard';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthenticationHttpInterceptor} from './services/authentication.http-interceptor';
 
 @NgModule({
   declarations: [],
@@ -16,7 +18,8 @@ export class SecurityModule {
       providers: [
         SecurityService,
         {provide: AMPLIFY_CONFIG, useValue: amplifyConfig},
-        AuthenticationGuard
+        AuthenticationGuard,
+        {provide: HTTP_INTERCEPTORS, useClass: AuthenticationHttpInterceptor, multi: true}
       ]
     }
   }
