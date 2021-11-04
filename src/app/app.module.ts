@@ -8,6 +8,7 @@ import {CoreModule} from './core/core.module';
 import {bookRoutes} from './book/book.routes';
 import {HttpClientModule} from '@angular/common/http';
 import {SecurityModule} from './security/security.module';
+import {AccessDeniedComponent} from './security/components/access-denied/access-denied.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import {SecurityModule} from './security/security.module';
     CoreModule,
     RouterModule.forRoot([
       {path: '', redirectTo: '/books', pathMatch: 'full'},
+      {path: 'access-denied', component: AccessDeniedComponent},
       bookRoutes
     ]),
     BookModule.forRoot()

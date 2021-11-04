@@ -4,9 +4,11 @@ import {AMPLIFY_CONFIG, SecurityService} from './services/security.service';
 import {AuthenticationGuard} from './services/authentication.guard';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {AuthenticationHttpInterceptor} from './services/authentication.http-interceptor';
+import {AuthorizationGuard} from './services/authorization.guard';
+import {AccessDeniedComponent} from './components/access-denied/access-denied.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [AccessDeniedComponent],
   imports: [
     CommonModule
   ]
@@ -19,7 +21,8 @@ export class SecurityModule {
         SecurityService,
         {provide: AMPLIFY_CONFIG, useValue: amplifyConfig},
         AuthenticationGuard,
-        {provide: HTTP_INTERCEPTORS, useClass: AuthenticationHttpInterceptor, multi: true}
+        {provide: HTTP_INTERCEPTORS, useClass: AuthenticationHttpInterceptor, multi: true},
+        AuthorizationGuard
       ]
     }
   }
