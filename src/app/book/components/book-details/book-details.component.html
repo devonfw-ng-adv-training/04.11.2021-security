@@ -5,36 +5,30 @@
   <ng-container formGroupName="author">
     <div class="mb-3">
       <label for="firstname" class="form-label">First Name:</label>
-      <input type="text" id="firstname"
-             class="form-control"
-             formControlName="firstname"
-             [ngClass]="{'is-invalid':bookForm.get('author.firstname')?.invalid }">
-      <span class="invalid-feedback">
-        <span *ngIf ="bookForm.get('author.firstname')?.errors?.required" >Please provide a value </span>
-        <span *ngIf ="bookForm.get('author.firstname')?.errors?.maxlength" >Provide value is too long ({{bookForm.get('author.firstname')?.errors?.maxlength.actualLength}}) </span>
-      </span>
+      <ba-basic-validation-output>
+        <input type="text" id="firstname"
+               class="form-control"
+               formControlName="firstname"
+               [ngClass]="{'is-invalid':bookForm.get('author.firstname')?.invalid }">
+     </ba-basic-validation-output>
     </div>
     <div class="mb-3">
       <label for="lastname" class="form-label">Last Name:</label>
-      <input type="text" id="lastname"
+      <ba-basic-validation-output>
+        <input type="text" id="lastname"
              class="form-control"
              formControlName="lastname"
              [ngClass]="{'is-invalid':bookForm.get('author.lastname')?.invalid }">
-      <span class="invalid-feedback">
-        <span *ngIf ="bookForm.get('author.lastname')?.errors?.required" >Please provide a value </span>
-        <span *ngIf ="bookForm.get('author.lastname')?.errors?.maxlength" >Provide value is too long ({{bookForm.get('author.lastname')?.errors?.maxlength.actualLength}}) </span>
-      </span>
+     </ba-basic-validation-output>
     </div>
   </ng-container>
   <div class="mb-3">
     <label for="title" class="form-label">Title:</label>
-    <input id="title" class="form-control"
+    <ba-basic-validation-output>
+      <input id="title" class="form-control"
            formControlName="title"
            [ngClass]="{'is-invalid':bookForm.get('title')?.invalid }">
-    <span class="invalid-feedback">
-        <span *ngIf ="bookForm.get('title')?.errors?.required" >Please provide a value </span>
-        <span *ngIf ="bookForm.get('title')?.errors?.maxlength" >Provide value is too long ({{bookForm.get('title')?.errors?.maxlength.actualLength}}) </span>
-      </span>
+    </ba-basic-validation-output>
   </div>
   <button type="submit" class="btn btn-primary">Save</button>
 </form>

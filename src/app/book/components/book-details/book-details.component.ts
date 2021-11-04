@@ -4,7 +4,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {BookService} from '../../services/book.service';
 import {Observable, Subject} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'ba-book-details',
@@ -18,19 +18,20 @@ export class BookDetailsComponent implements OnDestroy {
 
   constructor(private books: BookService,
               private router: Router,
-              private currentRoute: ActivatedRoute) {
+              private currentRoute: ActivatedRoute,
+              private fb: FormBuilder) {
 
     this.book = currentRoute.snapshot.data.book;
-    this.bookForm = new FormGroup({
-      author: new FormGroup({
-        firstname: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
-        lastname: new FormControl(null, [Validators.required, Validators.maxLength(30)]),
+    this.bookForm = this.fb.group({
+      author:  this.fb.group({
+        firstname: [null, [Validators.required, Validators.maxLength(30)]],
+        lastname:  [null, [Validators.required, Validators.maxLength(30)]],
       }),
-      title: new FormControl(null, Validators.required),
-      category: new FormControl([]),
-      details: new FormGroup({
-        publishedYear: new FormControl(null, [Validators.required]),
-        isbn: new FormControl(null, [Validators.required, Validators.maxLength(13)]),
+      title:  [null, Validators.required],
+      categories:  [[]] ,
+      details:  this.fb.group({
+        publishedYear: [null, [Validators.required]],
+        isbn: [null, [Validators.required, Validators.maxLength(13)]],
       }),
     });
     if (this.book) {
