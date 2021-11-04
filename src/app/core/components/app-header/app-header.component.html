@@ -16,6 +16,11 @@
              routerLinkActive="active" class="nav-link" href="#">Add a New Book...</a>
         </li>
       </ul>
+      <span class="flex-fill"></span>
+      <div class="d-flex">
+        <div *ngIf="userEmail"><small class="text-light">{{userEmail}}</small>&nbsp;<button class="btn btn-outline-light" (click)="signOut()">Sign Out</button></div>
+        <button *ngIf="!userEmail" class="btn btn-outline-light" (click)="goToSignInDialog()">Sign&nbsp;In&nbsp;/&nbsp;Sign&nbsp;Up</button>
+      </div>
     </div>
   </div>
 </nav>
