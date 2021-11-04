@@ -20,5 +20,10 @@
       "title": "Funny book on Angular",
       "id": 3
     }
-  ]
+  ],
+
+  "users": [{
+    "email": "marek.matczak79@gmail.com",
+    "rights": ["newBook", "updateBook"]
+  }]
 }
