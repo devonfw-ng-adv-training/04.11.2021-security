@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {SecurityService} from '../../../security/services/security.service';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'ba-app-header',
@@ -9,9 +10,11 @@ import {SecurityService} from '../../../security/services/security.service';
 })
 export class AppHeaderComponent implements OnInit{
   userEmail: string | null = null;
+  userHasRightToCreateNewBook$: Observable<boolean>;
 
   constructor(private readonly security: SecurityService,
               private readonly router: Router) {
+    this.userHasRightToCreateNewBook$ = this.security.userHasRight('newBook');
   }
 
   ngOnInit(): void {

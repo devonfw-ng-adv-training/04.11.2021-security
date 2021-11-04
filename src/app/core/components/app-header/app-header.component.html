@@ -11,7 +11,7 @@
              routerLinkActive="active"
              [routerLinkActiveOptions]="{exact: true}" class="nav-link" aria-current="page">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="userHasRightToCreateNewBook$ | async">
           <a routerLink="/books/new"
              routerLinkActive="active" class="nav-link" href="#">Add a New Book...</a>
         </li>
