@@ -8,10 +8,11 @@ import { BookAuthorNestedFormComponent } from './book-author-nested-form/book-au
 
 import { NumberInputComponent } from './number-input/number-input.component';
 import {DetailsNestedFormComponent} from "./details-nested-form/details-nested-form.component";
+import {IsInvalidClassDirective} from "./is-invalid-class.directive";
 
 const exportedModules = [CommonModule, RouterModule, ReactiveFormsModule, TranslateModule];
 const exportedComponents = [
-  NumberInputComponent,DetailsNestedFormComponent,  BasicValidationOutputComponent, BookAuthorNestedFormComponent];
+  NumberInputComponent, IsInvalidClassDirective, DetailsNestedFormComponent,  BasicValidationOutputComponent, BookAuthorNestedFormComponent];
 
 @NgModule({
   declarations: [

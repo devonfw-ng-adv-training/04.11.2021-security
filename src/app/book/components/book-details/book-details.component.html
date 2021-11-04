@@ -10,7 +10,8 @@
     <ba-basic-validation-output>
       <input id="title" class="form-control"
            formControlName="title"
-           [ngClass]="{'is-invalid':bookForm.get('title')?.invalid }">
+           baIsInvalidClass
+           >
     </ba-basic-validation-output>
   </div>
   <ba-details-nested-form  formControlName="details"> </ba-details-nested-form>

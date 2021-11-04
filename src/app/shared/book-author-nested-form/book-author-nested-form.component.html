@@ -5,7 +5,8 @@
       <input type="text" id="firstname"
              class="form-control"
              formControlName="firstname"
-             [ngClass]="{'is-invalid':authorFormGroup.get('firstname')?.invalid }">
+             baIsInvalidClass
+             >
     </ba-basic-validation-output>
   </div>
   <div class="mb-3">
@@ -14,7 +15,8 @@
       <input type="text" id="lastname"
              class="form-control"
              formControlName="lastname"
-             [ngClass]="{'is-invalid':authorFormGroup.get('lastname')?.invalid }">
+             baIsInvalidClass
+             >
     </ba-basic-validation-output>
   </div>
 </ng-container>
